@@ -17,6 +17,9 @@ struct Repository: Mappable {
     let full_name: String
     var description : String?
     let owner: User
+    var forks: Int?
+    var forks_count: Int?
+    var stargazers_count: Int?
     
     init(map: Mapper) throws {
         
@@ -26,6 +29,9 @@ struct Repository: Mappable {
         try full_name = map.from("full_name")
         try owner = map.from("owner")
         description = map.optionalFrom("description")
+        forks = map.optionalFrom("forks")
+        forks_count = map.optionalFrom("forks_count")
+        stargazers_count = map.optionalFrom("stargazers_count")
 
     }
     

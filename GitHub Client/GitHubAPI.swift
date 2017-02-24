@@ -14,6 +14,9 @@ public enum GitHub {
     case userRepositories(String)
     case searchRepositories(String,Int)
     case listRepositories(Int)
+    case repoProfile(String)
+    case repoCommits(String)
+    case repoBranches(String)
 }
 
 extension GitHub: TargetType {
@@ -25,6 +28,12 @@ extension GitHub: TargetType {
             return "/search/repositories"
         case .listRepositories(_):
             return "/repositories"
+        case .repoProfile(let full_name):
+            return "/repos/\(full_name)"
+        case .repoCommits(let full_name):
+            return "/repos/\(full_name)/commits"
+        case .repoBranches(let full_name):
+            return "/repos/\(full_name)/branches"
         case .userRepositories(let name):
             return "/users/\(name.urlEscaped)/repos"
         }
@@ -61,6 +70,12 @@ extension GitHub: TargetType {
         
         switch self {
         case .searchRepositories:
+            return "".data(using: String.Encoding.utf8)!
+        case .repoProfile:
+             return "".data(using: String.Encoding.utf8)!
+        case .repoBranches:
+            return "".data(using: String.Encoding.utf8)!
+        case .repoCommits:
             return "".data(using: String.Encoding.utf8)!
         case .listRepositories:
             return "[{\"id\":1  \"name\" : \"grit\"}]".data(using: String.Encoding.utf8)!

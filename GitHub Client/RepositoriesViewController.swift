@@ -29,9 +29,28 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.definesPresentationContext = true
         self.setUpTableView()
+        
         getPublicRepos(since: publicActualScience)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "RepositoryProfleViewController"){
+            
+            let indexPath:IndexPath = self.tableView.indexPathForSelectedRow!
+            var repo:Repository?  = nil
+            
+            if(self.resultSearchController.isActive){
+                repo = search_repos_array[indexPath.row]
+            }else{
+                repo = repos_array[indexPath.row]
+            }
+            
+            let vc = segue.destination as! RepositoryProfleViewController
+            vc.repository = repo
+            
+        }
+    }
     
     // SETUP DESING, UI AND EVENTS TABLEVIEW
     
@@ -50,6 +69,19 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
             return controller
             
         })()
+        
+        _ =  self.tableView.setUpHeaderRefresh { [weak self] in
+                self?.getPublicRepos(since: 0)
+        
+            }.SetUp { (header) in
+                header.setText("Pull to refresh", mode: .pullToRefresh)
+                header.setText("Release to refresh", mode: .releaseToRefresh)
+                header.setText("Success", mode: .refreshSuccess)
+                header.setText("Refreshing...", mode: .refreshing)
+                header.setText("Failed", mode: .refreshFailure)
+                header.textLabel.textColor = UIColor.black
+                header.imageView.image = nil
+        }
         
         
         _ = self.tableView.setUpFooterRefresh {  [weak self] in
@@ -150,7 +182,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
                 do {
                     
                     let repos_array_response = try response.mapArray(withKeyPath: "items") as [Repository]
-                    // If page 1 create array is page 2 add to the list
+                    // If page 1 create array, if page 2 add to the list
+                    
                     if(self.searchActualPage > 1){
                         
                         self.search_repos_array = self.search_repos_array + repos_array_response
@@ -180,10 +213,13 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         GitHubProvider.request(.listRepositories(since)) { result in
 
             loadingNotification.hide(animated: true)
+            self.tableView.endHeaderRefreshing()
             
             if case let .success(response) = result {
                 
                 do {
+                    
+                    // If id 0 create array, if bigger add to the list
                     
                     if(since == 0){
                         let repos_array_response = try response.mapArray() as [Repository]
