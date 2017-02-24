@@ -14,13 +14,17 @@ PODS:
     - Result (~> 3.0)
   - PullToRefreshKit (0.4.0)
   - Result (3.1.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - MBProgressHUD (~> 1.0)
-  - Moya
+  - Moya (~> 8.0)
   - Moya-ModelMapper (= 4.0.0)
-  - PullToRefreshKit
+  - PullToRefreshKit (~> 0.4)
+  - SDWebImage (~> 4.0)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -30,7 +34,8 @@ SPEC CHECKSUMS:
   Moya-ModelMapper: ba729497d947b536837cf377b81c150512245d85
   PullToRefreshKit: 5ec15cd0c0828804bcac637c9db6df70c048c9ce
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: a3c391a9775d6ff88cb7c04fc6c4fca8d6f00d22
+PODFILE CHECKSUM: 065b411125ac4613ba09bc7f600f38fb6bbe8e29
 
 COCOAPODS: 1.1.1

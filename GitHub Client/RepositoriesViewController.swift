@@ -64,7 +64,7 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
             controller.searchBar.sizeToFit()
             controller.searchBar.barStyle = UIBarStyle.black
             controller.searchBar.barTintColor = UIColor.white
-            controller.searchBar.backgroundColor = UIColor.clear
+            controller.searchBar.backgroundColor = UIColor(red: 46.0/255.0, green: 14.0/255.0, blue: 74.0/255.0, alpha: 1.0)
             self.tableView.tableHeaderView = controller.searchBar
             return controller
             
@@ -143,6 +143,9 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         let cell  = self.tableView.dequeueReusableCell(withIdentifier: "RepoTableViewCell", for: indexPath) as! RepoTableViewCell
         cell.label_name.text = repo?.name
         cell.label_owner.text = repo?.owner.login
+        cell.img_avatar.sd_setImage(with: URL(string: repo!.owner.avatar_url!), placeholderImage: UIImage(named : "placeholder"))
+        cell.img_avatar.layer.cornerRadius = 40.0 / 2
+        cell.img_avatar.clipsToBounds = true
         return cell
         
     }
@@ -205,14 +208,18 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func getPublicRepos(since: Int) {
-        
-        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
-        loadingNotification.mode = MBProgressHUDMode.indeterminate
-        loadingNotification.label.text = "Loading"
+        var loadingNotification: MBProgressHUD? = nil
+        if(since == 0){
+            
+            loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+            loadingNotification?.mode = MBProgressHUDMode.indeterminate
+            loadingNotification?.label.text = "Loading"
+
+        }
         
         GitHubProvider.request(.listRepositories(since)) { result in
 
-            loadingNotification.hide(animated: true)
+            
             self.tableView.endHeaderRefreshing()
             
             if case let .success(response) = result {
@@ -222,6 +229,7 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
                     // If id 0 create array, if bigger add to the list
                     
                     if(since == 0){
+                        loadingNotification?.hide(animated: true)
                         let repos_array_response = try response.mapArray() as [Repository]
                         let lastRepo = repos_array_response.last
                         self.publicActualScience = (lastRepo?.id)!

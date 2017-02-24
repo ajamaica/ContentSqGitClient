@@ -13,9 +13,11 @@ struct User: Mappable {
     
     let login: String
     let id: Int
+    var avatar_url:String?
     
     init(map: Mapper) throws {
         try id = map.from("id")
         try login = map.from("login")
+        avatar_url = map.optionalFrom("avatar_url")
     }
 }

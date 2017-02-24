@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -16,6 +17,7 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
                 UIColor(red: 0.992, green: 0.847, blue: 0.208, alpha: 1.00),
                 UIColor(red: 0.761, green: 0.094, blue: 0.357, alpha: 1.00)]
     let menus = ["Commits", "Contributors", "Issues", " Open Pull Request", "Branches"]
+    
     @IBOutlet var label_branches: UILabel!
     @IBOutlet var label_forks: UILabel!
     @IBOutlet var label_commits: UILabel!
@@ -51,6 +53,10 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         }else{
             self.label_stars.text = "0 stars"
         }
+        
+        self.img_avatar.sd_setImage(with: URL(string: self.repository!.owner.avatar_url!), placeholderImage: UIImage(named : "placeholder"))
+        self.img_avatar.layer.cornerRadius = self.img_avatar.frame.size.width / 2
+        self.img_avatar.clipsToBounds = true
         
         GitHubProvider.request(.repoCommits(self.repository!.full_name)) { result in
             
@@ -96,7 +102,6 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         
         cell.backgroundColor = colors[indexPath.row]
         cell.label_menu_name.text = menus[indexPath.row]
-        
         
         return cell
     }

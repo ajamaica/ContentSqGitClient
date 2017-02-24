@@ -10,6 +10,7 @@ import UIKit
 
 class RepoTableViewCell: UITableViewCell {
 
+    @IBOutlet var img_avatar: UIImageView!
     @IBOutlet var label_name: UILabel!
     @IBOutlet var label_owner: UILabel!
     
