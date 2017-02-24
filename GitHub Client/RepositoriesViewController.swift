@@ -28,9 +28,9 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            controller.searchBar.barStyle = UIBarStyle.black
+            /*controller.searchBar.barStyle = UIBarStyle.black
             controller.searchBar.barTintColor = UIColor.white
-            controller.searchBar.backgroundColor = UIColor.clear
+            controller.searchBar.backgroundColor = UIColor.clear*/
             self.tableView.tableHeaderView = controller.searchBar
             return controller
         })()
