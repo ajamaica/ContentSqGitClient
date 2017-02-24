@@ -22,15 +22,15 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.definesPresentationContext = true
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            /*controller.searchBar.barStyle = UIBarStyle.black
+            controller.searchBar.barStyle = UIBarStyle.black
             controller.searchBar.barTintColor = UIColor.white
-            controller.searchBar.backgroundColor = UIColor.clear*/
+            controller.searchBar.backgroundColor = UIColor.clear
             self.tableView.tableHeaderView = controller.searchBar
             return controller
         })()
@@ -54,7 +54,6 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
     
   
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var repo:Repository?  = nil
@@ -72,14 +71,17 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        searchPublicRepos(search_query: searchController.searchBar.text!)
-        self.tableView.reloadData()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        searchPublicRepos(search_query: searchController.searchBar.text!)
+        search_repos_array = [Repository]()
+        self.tableView.reloadData()
 
+    }
     
     func searchPublicRepos(search_query : String) {
         
