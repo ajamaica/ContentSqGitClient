@@ -8,6 +8,7 @@ target 'GitHub Client' do
   pod 'Moya'
   pod 'Moya-ModelMapper', '4.0.0'
   pod 'MBProgressHUD', '~> 1.0'
+  pod 'PullToRefreshKit'
   # Pods for GitHub Client
 
   target 'GitHub ClientTests' do

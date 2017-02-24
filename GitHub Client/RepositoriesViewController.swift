@@ -11,18 +11,27 @@ import Moya_ModelMapper
 import Mapper
 import MBProgressHUD
 import Moya
+import PullToRefreshKit
 
-class RepositoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating {
+class RepositoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating{
 
+    
     var resultSearchController = UISearchController()
     @IBOutlet var tableView: UITableView!
     var repos_array = [Repository]()
     var search_repos_array = [Repository]()
     var search_request:Cancellable? = nil
+    var publicActualScience = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.definesPresentationContext = true
+        self.setUpTableView()
+        getPublicRepos()
+    }
+    
+    func setUpTableView(){
+        
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -34,8 +43,35 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
             self.tableView.tableHeaderView = controller.searchBar
             return controller
         })()
+        
+        
+        _ = self.tableView.setUpFooterRefresh {  [weak self] in
+            
+            GitHubProvider.request(.listRepositories(self!.publicActualScience)) { result in
+                
+                if case let .success(response) = result {
+                    
+                    do {
+                        let repos_array_response = try response.mapArray() as [Repository]
+                        self?.repos_array = (self?.repos_array)! + repos_array_response
+                        self?.tableView.reloadData()
+                        self?.tableView.endFooterRefreshing()
+                    } catch {
+                        
+                    }
+                }
+            }
+            
+            }.SetUp { (footer) in
+                footer.setText("Pull up to refresh", mode: RefreshKitFooterText.pullToRefresh)
+                footer.setText("No more repos", mode: RefreshKitFooterText.noMoreData)
+                footer.setText("Refreshing...", mode: RefreshKitFooterText.refreshing)
+                footer.setText("Tap to load more repos", mode: RefreshKitFooterText.tapToRefresh)
+                footer.textLabel.textColor  = UIColor.black
+                footer.refreshMode = .tap
+        }
         self.tableView.reloadData()
-        getPublicRepos()
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,7 +147,7 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading"
         
-        GitHubProvider.request(.listRepositories()) { result in
+        GitHubProvider.request(.listRepositories(publicActualScience)) { result in
 
             loadingNotification.hide(animated: true)
             
@@ -119,6 +155,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
                 
                 do {
                     let repos_array_response = try response.mapArray() as [Repository]
+                    let lastRepo = repos_array_response.last
+                    self.publicActualScience = (lastRepo?.id)!
                     self.repos_array = repos_array_response
                     self.tableView.reloadData()
                 } catch {
@@ -133,6 +171,8 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
 
 }
