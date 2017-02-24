@@ -25,12 +25,12 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sZ9-bw-jhI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="CVg-Oi-Je5">
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="V4l-RG-EEw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <outlet property="delegate" destination="BYZ-38-t0r" id="9nd-jS-E5C"/>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="7ok-0U-R5q"/>
                                     </connections>
                                 </searchBar>
                                 <prototypes>
@@ -65,8 +65,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="name" destination="pEL-gy-vnR" id="dVp-gj-w1D"/>
-                                            <outlet property="owner" destination="m7W-MW-zu0" id="jL6-hl-vWu"/>
+                                            <outlet property="label_name" destination="pEL-gy-vnR" id="bWk-ww-i4L"/>
+                                            <outlet property="label_owner" destination="m7W-MW-zu0" id="guf-k4-O8A"/>
                                             <segue destination="aIR-lu-X3c" kind="show" id="hDZ-ZC-9ub"/>
                                         </connections>
                                     </tableViewCell>
@@ -87,28 +87,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Public Repos" id="PEz-8r-Twd"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="9hZ-RR-Ig6" id="t8G-vm-FVO"/>
                         <outlet property="tableView" destination="sZ9-bw-jhI" id="7e1-Ga-LKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="QYk-CQ-vji">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="7Iw-vv-gds"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="14q-Ub-L1e"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Yj3-fp-CcC"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="x5o-Px-ef7"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="9hZ-RR-Ig6">
-                    <connections>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="0WS-P0-cQH"/>
-                        <outlet property="searchBar" destination="CVg-Oi-Je5" id="UvK-bO-wHo"/>
-                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="Nlh-3D-JUY"/>
-                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="wIe-9Z-BSU"/>
-                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="jS0-Cz-oN6"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1076" y="112.89355322338831"/>
         </scene>

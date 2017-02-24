@@ -16,6 +16,7 @@ struct Repository: Mappable {
     let name: String
     let full_name: String
     var description : String?
+    let owner: User
     
     init(map: Mapper) throws {
         
@@ -23,6 +24,7 @@ struct Repository: Mappable {
         try url = map.from("url")
         try name = map.from("name")
         try full_name = map.from("full_name")
+        try owner = map.from("owner")
         description = map.optionalFrom("description")
 
     }

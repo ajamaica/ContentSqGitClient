@@ -10,8 +10,8 @@ import UIKit
 
 class RepoTableViewCell: UITableViewCell {
 
-    @IBOutlet var name: UILabel!
-    @IBOutlet var owner: UILabel!
+    @IBOutlet var label_name: UILabel!
+    @IBOutlet var label_owner: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
