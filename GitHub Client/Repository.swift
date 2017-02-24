@@ -13,16 +13,17 @@ struct Repository: Mappable {
     
     let id: Int
     let url: String
-    let description: String
-    let full_name : String
+    let name: String
+    let full_name: String
+    var description : String?
     
     init(map: Mapper) throws {
         
         try id = map.from("id")
         try url = map.from("url")
-        try description = map.from("description")
+        try name = map.from("name")
         try full_name = map.from("full_name")
-
+        description = map.optionalFrom("description")
 
     }
     

@@ -11,9 +11,10 @@ import Moya_ModelMapper
 import Mapper
 import MBProgressHUD
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepositoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var repos = [Repository]()
+    @IBOutlet var tableView: UITableView!
+    var repos_array = [Repository]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.repos_array.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell  = tableView.cellForRow(at: indexPath)
-        return cell!
+        
+        let repo = repos_array[indexPath.row]
+        
+        let cell  = self.tableView.dequeueReusableCell(withIdentifier: "RepoTableViewCell", for: indexPath) as! RepoTableViewCell
+        cell.name.text = repo.name
+        return cell
+        
     }
     func getPublicRepos() {
         
@@ -40,14 +46,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         GitHubProvider.request(.listRepositories()) { result in
 
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-
+            loadingNotification.hide(animated: true)
+            
             if case let .success(response) = result {
                 
                 do {
-                    let repos_response = try response.mapArray() as [Repository]
-                    self.repos = repos_response
-
+                    let repos_array_response = try response.mapArray() as [Repository]
+                    self.repos_array = repos_array_response
+                    self.tableView.reloadData()
                 } catch {
 
                 }
