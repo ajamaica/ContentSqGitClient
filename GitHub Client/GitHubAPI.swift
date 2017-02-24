@@ -12,7 +12,7 @@ import Moya
 
 public enum GitHub {
     case userRepositories(String)
-    case searchRepositories(String)
+    case searchRepositories(String,Int)
     case listRepositories(Int)
 }
 
@@ -21,7 +21,7 @@ extension GitHub: TargetType {
     
     public var path: String {
         switch self {
-        case .searchRepositories(_):
+        case .searchRepositories(_,_):
             return "/search/repositories"
         case .listRepositories(_):
             return "/repositories"
@@ -39,8 +39,8 @@ extension GitHub: TargetType {
             return ["sort": "pushed"]
         case .listRepositories(let page):
             return ["since": page]
-        case .searchRepositories(let query):
-            return ["q": "\(query)"]
+        case .searchRepositories(let query,let page):
+            return ["q": "\(query)", "page" : page]
         default:
             return nil
         }
