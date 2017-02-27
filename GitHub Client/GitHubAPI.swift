@@ -58,6 +58,8 @@ extension GitHub: TargetType {
             return ["sort": "pushed"]
         case .listRepositories(let page):
             return ["since": page]
+        case .repoPulls(_):
+            return ["state" : "open" ]
         case .searchRepositories(let query,let page):
             return ["q": "\(query)", "page" : page]
         default:
@@ -80,17 +82,17 @@ extension GitHub: TargetType {
         
         switch self {
         case .searchRepositories:
-            return "".data(using: String.Encoding.utf8)!
+            return "{\"items\" : [{\"id\":1  \"name\" : \"grit\"}] }".data(using: String.Encoding.utf8)!
         case .repoProfile:
-             return "".data(using: String.Encoding.utf8)!
+             return "{\"name\": \"Repo Name\"}".data(using: String.Encoding.utf8)!
         case .repoBranches:
-            return "".data(using: String.Encoding.utf8)!
+            return "[{\"name\": \"1.12-stable\",\"commit\": {    \"sha\": \"e09907ce152fb6ef7537a3733b1d65ead8ee6303\",    \"url\": \"https://api.github.com/repos/jquery/jquery/commits/e09907ce152fb6ef7537a3733b1d65ead8ee6303\"}}]".data(using: String.Encoding.utf8)!
         case .repoContributors:
-            return "".data(using: String.Encoding.utf8)!
+            return "[{ \"login\": \"jeresig\",\"id\": 1615,\"avatar_url\": \"https://avatars.githubusercontent.com/u/1615?v=3\",\"gravatar_id\": \"\",\"url\": \"https://api.github.com/users/jeresig\",\"html_url\": \"https://github.com/jeresig\",\"followers_url\": \"https://api.github.com/users/jeresig/followers\",\"following_url\": \"https://api.github.com/users/jeresig/following{/other_user}\",\"gists_url\": \"https://api.github.com/users/jeresig/gists{/gist_id}\",\"starred_url\": \"https://api.github.com/users/jeresig/starred{/owner}{/repo}\",\"subscriptions_url\": \"https://api.github.com/users/jeresig/subscriptions\",\"organizations_url\": \"https://api.github.com/users/jeresig/orgs\",\"repos_url\": \"https://api.github.com/users/jeresig/repos\",\"events_url\": \"https://api.github.com/users/jeresig/events{/privacy}\",\"received_events_url\": \"https://api.github.com/users/jeresig/received_events\",\"type\": \"User\",\"site_admin\": false,\"contributions\": 1714}]".data(using: String.Encoding.utf8)!
         case .repoIssues:
-            return "".data(using: String.Encoding.utf8)!
+            return "[{\"url\":\"https://api.github.com/repos/jquery/jquery/issues/3550\"  \"user\" :{} \"body\": \"\"}]".data(using: String.Encoding.utf8)!
         case .repoCommits:
-            return "".data(using: String.Encoding.utf8)!
+            return "[{\"sha\": \"bd984f0ee2cf40107a669d80d92566b8625b1e6b\", \"commit\": {\"message\": \"Core: Move holdReady to deprecated\n\nFixes gh-3288\nClose gh-3306\",\"tree\": {\"sha\": \"4b521d06ca43061369bcf9652e3e7fe8f28784f0\",}, \"url\": \"https://api.github.com/repos/jquery/jquery/git/commits/bd984f0ee2cf40107a669d80d92566b8625b1e6b\",\"comment_count\": 0}, \"url\": \"https://api.github.com/repos/jquery/jquery/commits/bd984f0ee2cf40107a669d80d92566b8625b1e6b\"}]".data(using: String.Encoding.utf8)!
         case .repoPulls:
             return "".data(using: String.Encoding.utf8)!
         case .listRepositories:

@@ -396,8 +396,7 @@
                                 <connections>
                                     <outlet property="label_autor" destination="gsa-be-Jws" id="TON-AZ-RqP"/>
                                     <outlet property="label_title" destination="Qye-Ez-8IK" id="0Jc-Wz-FOg"/>
-                                    <outlet property="tableview_description" destination="Ynb-rh-TWf" id="Wu1-2t-Ihd"/>
-                                    <outlet property="textview_description" destination="Ynb-rh-TWf" id="wtD-m3-sAQ"/>
+                                    <outlet property="tableview_description" destination="Ynb-rh-TWf" id="DtP-Di-fiU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
