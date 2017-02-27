@@ -339,22 +339,67 @@
             </objects>
             <point key="canvasLocation" x="2677.5999999999999" y="-225.33733133433284"/>
         </scene>
-        <!--Issues Table View Controller-->
+        <!--Issues-->
         <scene sceneID="dYW-wx-R4R">
             <objects>
-                <tableViewController id="aO3-tZ-rEZ" customClass="IssuesTableViewController" customModule="GitHub_Client" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Issues" id="aO3-tZ-rEZ" customClass="IssuesTableViewController" customModule="GitHub_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sgc-gx-1Ka">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8Tu-ug-1lX">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="119" id="Bxe-B4-xZy" customClass="IssueTableViewCell" customModule="GitHub_Client" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Tu-ug-1lX" id="8nB-hd-QcN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bxe-B4-xZy" id="ufC-8g-187">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qye-Ez-8IK">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="tTX-cR-3qo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu," textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ynb-rh-TWf">
+                                            <rect key="frame" x="8" y="60.5" width="359" height="49.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsa-be-Jws">
+                                            <rect key="frame" x="8" y="31" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="DYU-4P-3bl"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Ynb-rh-TWf" secondAttribute="leading" id="4ZV-ro-vEm"/>
+                                        <constraint firstItem="gsa-be-Jws" firstAttribute="leading" secondItem="ufC-8g-187" secondAttribute="leadingMargin" id="IOf-WG-Ry6"/>
+                                        <constraint firstItem="Qye-Ez-8IK" firstAttribute="trailing" secondItem="ufC-8g-187" secondAttribute="trailingMargin" id="LeF-WJ-kLF"/>
+                                        <constraint firstItem="gsa-be-Jws" firstAttribute="top" secondItem="Qye-Ez-8IK" secondAttribute="bottom" constant="2" id="Xoa-QX-jcn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Ynb-rh-TWf" secondAttribute="trailing" id="ewh-B3-Qh5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ynb-rh-TWf" secondAttribute="bottom" id="nE5-bc-Pgx"/>
+                                        <constraint firstItem="Qye-Ez-8IK" firstAttribute="leading" secondItem="ufC-8g-187" secondAttribute="leadingMargin" id="qIU-ve-deb"/>
+                                        <constraint firstItem="Qye-Ez-8IK" firstAttribute="top" secondItem="ufC-8g-187" secondAttribute="topMargin" id="qil-ZF-ywU"/>
+                                        <constraint firstItem="Ynb-rh-TWf" firstAttribute="top" secondItem="gsa-be-Jws" secondAttribute="bottom" constant="8.5" id="tbs-aK-fDD"/>
+                                        <constraint firstItem="gsa-be-Jws" firstAttribute="trailing" secondItem="ufC-8g-187" secondAttribute="trailingMargin" id="tjM-2o-VLh"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label_autor" destination="gsa-be-Jws" id="TON-AZ-RqP"/>
+                                    <outlet property="label_name" destination="Qye-Ez-8IK" id="Rra-pW-hBG"/>
+                                    <outlet property="label_title" destination="Qye-Ez-8IK" id="0Jc-Wz-FOg"/>
+                                    <outlet property="tableview_description" destination="Ynb-rh-TWf" id="Wu1-2t-Ihd"/>
+                                    <outlet property="textview_description" destination="Ynb-rh-TWf" id="wtD-m3-sAQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -365,7 +410,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXY-OC-WVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679" y="430"/>
+            <point key="canvasLocation" x="2677.5999999999999" y="429.53523238380814"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="5Ov-Vp-YEv">

@@ -7,17 +7,41 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class IssuesTableViewController: UITableViewController {
 
+    var repository: Repository?
+    var issues:[Issue] = [Issue]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.estimatedRowHeight = 119.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        getIssues()
+    }
+    
+    func getIssues(){
+        
+        let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading"
+        
+        GitHubProvider.request(.repoIssues(self.repository!.full_name)) { result in
+            
+            if case let .success(response) = result {
+                do {
+                    loadingNotification.hide(animated: true)
+                    let issues_array = try response.mapArray() as [Issue]
+                    self.issues = issues_array
+                    self.tableView.reloadData()
+                } catch {
+                    
+                }
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +52,26 @@ class IssuesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return issues.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let issue = issues[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IssueTableViewCell", for: indexPath) as! IssueTableViewCell
+        cell.label_autor.text = "by \(issue.user.login)"
+        cell.label_title.text = issue.title
+        cell.tableview_description.text = issue.body
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
