@@ -12,10 +12,13 @@ import Mapper
 struct Pull: Mappable {
     
     let title: String
-    
+    let user: User
+    let body: String
     
     init(map: Mapper) throws {
         try title = map.from("title")
+        try user = map.from("user")
+        try body = map.from("body")
         
     }
 }

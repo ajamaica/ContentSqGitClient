@@ -30,6 +30,8 @@
 		06A125761E6493B800B3DBB4 /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A125751E6493B800B3DBB4 /* IssueTableViewCell.swift */; };
 		06A1257B1E649D5A00B3DBB4 /* OpenPullRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1257A1E649D5A00B3DBB4 /* OpenPullRequestTableViewController.swift */; };
 		06A1257D1E649DCA00B3DBB4 /* Pull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1257C1E649DCA00B3DBB4 /* Pull.swift */; };
+		06A125801E64A22A00B3DBB4 /* BranchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1257F1E64A22A00B3DBB4 /* BranchesTableViewController.swift */; };
+		06A125831E64A3EC00B3DBB4 /* PullsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A125821E64A3EC00B3DBB4 /* PullsTableViewCell.swift */; };
 		27A20EADA88A9CB749BBD91E /* Pods_GitHub_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7990D2CBC2E7CFF1658DDEE /* Pods_GitHub_Client.framework */; };
 		59A823287FBCD75DAA0A4AE6 /* Pods_GitHub_ClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB22BD04FCD49304595C3640 /* Pods_GitHub_ClientTests.framework */; };
 		9FEDAC1F706A3957555D41DE /* Pods_GitHub_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E6EB8101DB0AD9262139AB /* Pods_GitHub_ClientUITests.framework */; };
@@ -82,6 +84,8 @@
 		06A125751E6493B800B3DBB4 /* IssueTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		06A1257A1E649D5A00B3DBB4 /* OpenPullRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPullRequestTableViewController.swift; sourceTree = "<group>"; };
 		06A1257C1E649DCA00B3DBB4 /* Pull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pull.swift; sourceTree = "<group>"; };
+		06A1257F1E64A22A00B3DBB4 /* BranchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchesTableViewController.swift; sourceTree = "<group>"; };
+		06A125821E64A3EC00B3DBB4 /* PullsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullsTableViewCell.swift; sourceTree = "<group>"; };
 		09AF7170691F290829836118 /* Pods-GitHub ClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub ClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub ClientUITests/Pods-GitHub ClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2EA70AA0FFD9E3C1137B73E2 /* Pods-GitHub ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub ClientTests/Pods-GitHub ClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		52E6EB8101DB0AD9262139AB /* Pods_GitHub_ClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_ClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,7 @@
 		06A125171E5F8EE500B3DBB4 /* GitHub Client */ = {
 			isa = PBXGroup;
 			children = (
+				06A1257E1E64A21300B3DBB4 /* BranchesTableViewController */,
 				06A125791E649D4500B3DBB4 /* OpenPullRequestTableViewController */,
 				06A1256F1E6491F000B3DBB4 /* IssuesTableViewController */,
 				06A125631E6489E900B3DBB4 /* CommitsViewController */,
@@ -273,9 +278,26 @@
 		06A125791E649D4500B3DBB4 /* OpenPullRequestTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				06A125811E64A3D800B3DBB4 /* Cell */,
 				06A1257A1E649D5A00B3DBB4 /* OpenPullRequestTableViewController.swift */,
 			);
 			name = OpenPullRequestTableViewController;
+			sourceTree = "<group>";
+		};
+		06A1257E1E64A21300B3DBB4 /* BranchesTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				06A1257F1E64A22A00B3DBB4 /* BranchesTableViewController.swift */,
+			);
+			name = BranchesTableViewController;
+			sourceTree = "<group>";
+		};
+		06A125811E64A3D800B3DBB4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				06A125821E64A3EC00B3DBB4 /* PullsTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		829F4CD485A9A98D3E983FAD /* Frameworks */ = {
@@ -586,11 +608,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A125801E64A22A00B3DBB4 /* BranchesTableViewController.swift in Sources */,
 				06A1255A1E60BFAD00B3DBB4 /* Commit.swift in Sources */,
 				06A1255C1E60C1D600B3DBB4 /* Branch.swift in Sources */,
 				06A1251B1E5F8EE500B3DBB4 /* RepositoriesViewController.swift in Sources */,
 				06A125481E5F919F00B3DBB4 /* GitHubAPI.swift in Sources */,
 				06A1257D1E649DCA00B3DBB4 /* Pull.swift in Sources */,
+				06A125831E64A3EC00B3DBB4 /* PullsTableViewCell.swift in Sources */,
 				06A1256C1E648D2600B3DBB4 /* CommitTableViewCell.swift in Sources */,
 				06A125731E64929F00B3DBB4 /* Issue.swift in Sources */,
 				06A125581E60BADD00B3DBB4 /* RepositoryProfleViewController.swift in Sources */,

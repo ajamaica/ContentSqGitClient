@@ -1,5 +1,5 @@
 //
-//  OpenPullRequestTableViewController.swift
+//  BranchesTableViewController.swift
 //  GitHub Client
 //
 //  Created by Arturo Jamaica Garcia on 27/02/17.
@@ -9,32 +9,30 @@
 import UIKit
 import MBProgressHUD
 
-class OpenPullRequestTableViewController: UITableViewController {
+class BranchesTableViewController: UITableViewController {
 
     var repository: Repository?
-    var pulls:[Pull] = [Pull]()
+    var branches:[Branch] = [Branch]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.estimatedRowHeight = 119.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        getPull()
-    }
 
+        getBranches()
+    }
     
-    func getPull(){
+    func getBranches(){
         
         let loadingNotification = MBProgressHUD.showAdded(to: self.view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         loadingNotification.label.text = "Loading"
         
-        GitHubProvider.request(.repoPulls(self.repository!.full_name)) { result in
+        GitHubProvider.request(.repoBranches(self.repository!.full_name)) { result in
             
             if case let .success(response) = result {
                 do {
                     loadingNotification.hide(animated: true)
-                    let pull_array = try response.mapArray() as [Pull]
-                    self.pulls = pull_array
+                    let branches_array = try response.mapArray() as [Branch]
+                    self.branches = branches_array
                     self.tableView.reloadData()
                 } catch {
                     
@@ -43,7 +41,7 @@ class OpenPullRequestTableViewController: UITableViewController {
         }
         
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,17 +54,17 @@ class OpenPullRequestTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pulls.count
+        return branches.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let pull = pulls[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PullsTableViewCell", for: indexPath) as! PullsTableViewCell
-        cell.label_title.text = pull.title
-        cell.label_user.text = "by \(pull.user.login)"
-        cell.tableview_description.text = pull.body
+        let branch = branches[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BranchesTableViewCell", for: indexPath)
+
+        cell.textLabel?.text = branch.name
+        
         return cell
     }
     

@@ -274,7 +274,7 @@
                         <segue destination="aO3-tZ-rEZ" kind="show" identifier="IssuesTableViewController" id="c36-QO-TBF"/>
                         <segue destination="UbJ-qI-PAS" kind="show" identifier="CommitsTableViewController" id="9by-5R-O4c"/>
                         <segue destination="lND-Gh-wro" kind="show" identifier="OpenPullRequestTableViewController" id="rKf-0f-Rv4"/>
-                        <segue destination="ke0-br-toM" kind="show" id="g8Q-md-jhI"/>
+                        <segue destination="ke0-br-toM" kind="show" identifier="BranchesTableViewController" id="g8Q-md-jhI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x56-Xb-PFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,27 +414,61 @@
         <scene sceneID="5Ov-Vp-YEv">
             <objects>
                 <tableViewController title="Pulls" id="lND-Gh-wro" customClass="OpenPullRequestTableViewController" customModule="GitHub_Client" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="J2z-Cc-780">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="28" sectionFooterHeight="28" id="J2z-Cc-780">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="Kmt-Ur-4VV" style="IBUITableViewCellStyleDefault" id="V50-cf-gS9">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PullsTableViewCell" rowHeight="119" id="QP9-kW-O7K" customClass="PullsTableViewCell" customModule="GitHub_Client" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V50-cf-gS9" id="mx8-78-4CZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QP9-kW-O7K" id="iME-qe-Ohk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kmt-Ur-4VV">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG7-jk-K12">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="vqG-aM-JE7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu," textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irB-3x-tAa">
+                                            <rect key="frame" x="8" y="60.5" width="359" height="49.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Gg-Pb-eZc">
+                                            <rect key="frame" x="8" y="31" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Ec8-fs-OZL"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eG7-jk-K12" firstAttribute="leading" secondItem="iME-qe-Ohk" secondAttribute="leadingMargin" id="CQa-xa-z6q"/>
+                                        <constraint firstItem="4Gg-Pb-eZc" firstAttribute="top" secondItem="eG7-jk-K12" secondAttribute="bottom" constant="2" id="CXk-e4-MPc"/>
+                                        <constraint firstItem="eG7-jk-K12" firstAttribute="top" secondItem="iME-qe-Ohk" secondAttribute="topMargin" id="DM5-GH-Lsg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="irB-3x-tAa" secondAttribute="bottom" id="LD6-Fy-9az"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="irB-3x-tAa" secondAttribute="leading" id="Sib-IJ-cK9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="irB-3x-tAa" secondAttribute="trailing" id="V2Z-QO-7vL"/>
+                                        <constraint firstItem="4Gg-Pb-eZc" firstAttribute="trailing" secondItem="iME-qe-Ohk" secondAttribute="trailingMargin" id="ZwR-6g-0H0"/>
+                                        <constraint firstItem="4Gg-Pb-eZc" firstAttribute="leading" secondItem="iME-qe-Ohk" secondAttribute="leadingMargin" id="flF-0I-Jm0"/>
+                                        <constraint firstItem="irB-3x-tAa" firstAttribute="top" secondItem="4Gg-Pb-eZc" secondAttribute="bottom" constant="8.5" id="jP5-2D-JDB"/>
+                                        <constraint firstItem="eG7-jk-K12" firstAttribute="trailing" secondItem="iME-qe-Ohk" secondAttribute="trailingMargin" id="lgb-t6-idv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label_title" destination="eG7-jk-K12" id="c7V-jx-Bjp"/>
+                                    <outlet property="label_user" destination="4Gg-Pb-eZc" id="4WJ-hd-G0A"/>
+                                    <outlet property="tableview_description" destination="irB-3x-tAa" id="UMd-pI-rpy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -447,21 +481,30 @@
             </objects>
             <point key="canvasLocation" x="2678" y="1128"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Branches-->
         <scene sceneID="7W3-C9-uHF">
             <objects>
-                <tableViewController id="ke0-br-toM" sceneMemberID="viewController">
+                <tableViewController title="Branches" id="ke0-br-toM" customClass="BranchesTableViewController" customModule="GitHub_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Cno-dp-6f8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1PV-r4-KSq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BranchesTableViewCell" textLabel="Vy4-Bv-4Gu" style="IBUITableViewCellStyleDefault" id="1PV-r4-KSq">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1PV-r4-KSq" id="1L9-wL-EFC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vy4-Bv-4Gu">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
