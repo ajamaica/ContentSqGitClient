@@ -12,7 +12,6 @@
 		06A1251E1E5F8EE500B3DBB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A1251C1E5F8EE500B3DBB4 /* Main.storyboard */; };
 		06A125201E5F8EE500B3DBB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06A1251F1E5F8EE500B3DBB4 /* Assets.xcassets */; };
 		06A125231E5F8EE500B3DBB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A125211E5F8EE500B3DBB4 /* LaunchScreen.storyboard */; };
-		06A1252E1E5F8EE500B3DBB4 /* GitHub_ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1252D1E5F8EE500B3DBB4 /* GitHub_ClientTests.swift */; };
 		06A125391E5F8EE500B3DBB4 /* GitHub_ClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A125381E5F8EE500B3DBB4 /* GitHub_ClientUITests.swift */; };
 		06A125481E5F919F00B3DBB4 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A125471E5F919F00B3DBB4 /* GitHubAPI.swift */; };
 		06A1254B1E5F9BBA00B3DBB4 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1254A1E5F9BBA00B3DBB4 /* Repository.swift */; };
@@ -32,6 +31,7 @@
 		06A1257D1E649DCA00B3DBB4 /* Pull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1257C1E649DCA00B3DBB4 /* Pull.swift */; };
 		06A125801E64A22A00B3DBB4 /* BranchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1257F1E64A22A00B3DBB4 /* BranchesTableViewController.swift */; };
 		06A125831E64A3EC00B3DBB4 /* PullsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A125821E64A3EC00B3DBB4 /* PullsTableViewCell.swift */; };
+		06A125871E64A76600B3DBB4 /* GitHubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A125861E64A76600B3DBB4 /* GitHubAPITests.swift */; };
 		27A20EADA88A9CB749BBD91E /* Pods_GitHub_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7990D2CBC2E7CFF1658DDEE /* Pods_GitHub_Client.framework */; };
 		59A823287FBCD75DAA0A4AE6 /* Pods_GitHub_ClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB22BD04FCD49304595C3640 /* Pods_GitHub_ClientTests.framework */; };
 		9FEDAC1F706A3957555D41DE /* Pods_GitHub_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E6EB8101DB0AD9262139AB /* Pods_GitHub_ClientUITests.framework */; };
@@ -63,7 +63,6 @@
 		06A125221E5F8EE500B3DBB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06A125241E5F8EE500B3DBB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06A125291E5F8EE500B3DBB4 /* GitHub ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		06A1252D1E5F8EE500B3DBB4 /* GitHub_ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_ClientTests.swift; sourceTree = "<group>"; };
 		06A1252F1E5F8EE500B3DBB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06A125341E5F8EE500B3DBB4 /* GitHub ClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub ClientUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06A125381E5F8EE500B3DBB4 /* GitHub_ClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHub_ClientUITests.swift; sourceTree = "<group>"; };
@@ -86,6 +85,8 @@
 		06A1257C1E649DCA00B3DBB4 /* Pull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pull.swift; sourceTree = "<group>"; };
 		06A1257F1E64A22A00B3DBB4 /* BranchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchesTableViewController.swift; sourceTree = "<group>"; };
 		06A125821E64A3EC00B3DBB4 /* PullsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullsTableViewCell.swift; sourceTree = "<group>"; };
+		06A125861E64A76600B3DBB4 /* GitHubAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPITests.swift; sourceTree = "<group>"; };
+		06A125881E64AB5000B3DBB4 /* Pods_GitHub_Client.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_GitHub_Client.framework; path = "../../../../Library/Developer/Xcode/DerivedData/GitHub_Client-akbtmafrenyapacbotcaizmwannu/Build/Products/Debug-iphonesimulator/Pods_GitHub_Client.framework"; sourceTree = "<group>"; };
 		09AF7170691F290829836118 /* Pods-GitHub ClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub ClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub ClientUITests/Pods-GitHub ClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2EA70AA0FFD9E3C1137B73E2 /* Pods-GitHub ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub ClientTests/Pods-GitHub ClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		52E6EB8101DB0AD9262139AB /* Pods_GitHub_ClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub_ClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,8 +171,8 @@
 		06A1252C1E5F8EE500B3DBB4 /* GitHub ClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				06A1252D1E5F8EE500B3DBB4 /* GitHub_ClientTests.swift */,
 				06A1252F1E5F8EE500B3DBB4 /* Info.plist */,
+				06A125861E64A76600B3DBB4 /* GitHubAPITests.swift */,
 			);
 			path = "GitHub ClientTests";
 			sourceTree = "<group>";
@@ -303,6 +304,7 @@
 		829F4CD485A9A98D3E983FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				06A125881E64AB5000B3DBB4 /* Pods_GitHub_Client.framework */,
 				C7990D2CBC2E7CFF1658DDEE /* Pods_GitHub_Client.framework */,
 				AB22BD04FCD49304595C3640 /* Pods_GitHub_ClientTests.framework */,
 				52E6EB8101DB0AD9262139AB /* Pods_GitHub_ClientUITests.framework */,
@@ -635,7 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06A1252E1E5F8EE500B3DBB4 /* GitHub_ClientTests.swift in Sources */,
+				06A125871E64A76600B3DBB4 /* GitHubAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,7 +812,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C84241DB7195D4F234EBB52 /* Pods-GitHub ClientTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 35859A3G38;
 				INFOPLIST_FILE = "GitHub ClientTests/Info.plist";
@@ -826,7 +828,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2EA70AA0FFD9E3C1137B73E2 /* Pods-GitHub ClientTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 35859A3G38;
 				INFOPLIST_FILE = "GitHub ClientTests/Info.plist";
@@ -842,7 +844,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09AF7170691F290829836118 /* Pods-GitHub ClientUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 35859A3G38;
 				INFOPLIST_FILE = "GitHub ClientUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -857,7 +859,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5440459B55C2BECB5B1D0AA0 /* Pods-GitHub ClientUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				DEVELOPMENT_TEAM = 35859A3G38;
 				INFOPLIST_FILE = "GitHub ClientUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

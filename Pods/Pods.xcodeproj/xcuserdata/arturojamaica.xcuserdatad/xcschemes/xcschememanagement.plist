@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Nimble.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GitHub Client.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Quick.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +72,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0921CC2F4398BE9A4F1CEACB30684B56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1215771836B84E9F9899950098D2FF80</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>20BF33B0F154FD708E3E097B757090D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2E79CA33DD7E0E0B57EC615433896385</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>32BE1421865000291C15172C5603A75F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -83,11 +108,6 @@
 			<true/>
 		</dict>
 		<key>52ACA0236F086E72B74F0A090A743D41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>66CCB10679F2DC5F63F2B3F39D87F3A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
