@@ -12,11 +12,15 @@ import SDWebImage
 class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     let colors = [UIColor(red: 0.298, green: 0.686, blue: 0.314, alpha: 1.00),
-                UIColor(red: 1.000, green: 0.439, blue: 0.263, alpha: 1.00),
-                UIColor(red: 0.012, green: 0.663, blue: 0.957, alpha: 1.00),
-                UIColor(red: 0.992, green: 0.847, blue: 0.208, alpha: 1.00),
-                UIColor(red: 0.761, green: 0.094, blue: 0.357, alpha: 1.00)]
-    let menus = ["Commits", "Contributors", "Issues", " Open Pull Request", "Branches"]
+                  UIColor(red: 0.012, green: 0.663, blue: 0.957, alpha: 1.00),
+                  UIColor(red: 0.992, green: 0.847, blue: 0.208, alpha: 1.00),
+                  UIColor(red: 0.761, green: 0.094, blue: 0.357, alpha: 1.00)]
+    let menus = ["Commits",  "Issues", " Open Pull Request", "Branches"]
+    
+    let icons = [UIImage(named: "ic_list"),
+                 UIImage(named: "ic_clear_all"),
+                 UIImage(named: "ic_move_to_inbox"),
+                 UIImage(named: "ic_merge_type")]
     
     @IBOutlet var label_branches: UILabel!
     @IBOutlet var label_forks: UILabel!
@@ -63,9 +67,8 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
             if case let .success(response) = result {
                 do {
                     
-                    let repository = try response.mapArray() as [Commit]
-                    print(repository)
-                    self.label_commits.text = "\(repository.count) commits"
+                    let commits_array = try response.mapArray() as [Commit]
+                    self.label_commits.text = "\(commits_array.count) commits"
                 } catch {
 
                 }
@@ -78,9 +81,8 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
             if case let .success(response) = result {
                 do {
                     
-                    let repository = try response.mapArray() as [Branch]
-                    print(repository)
-                    self.label_branches.text = "\(repository.count) branches"
+                    let branch_array = try response.mapArray() as [Branch]
+                    self.label_branches.text = "\(branch_array.count) branches"
                 } catch {
                     
                 }
@@ -94,7 +96,7 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,6 +104,11 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         
         cell.backgroundColor = colors[indexPath.row]
         cell.label_menu_name.text = menus[indexPath.row]
+        
+        
+        let icon = icons[indexPath.row]?.withRenderingMode(.alwaysTemplate)
+        cell.img_menu.tintColor = UIColor.white
+        cell.img_menu.image = icon
         
         return cell
     }
@@ -111,6 +118,25 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(indexPath.row == 0){
+            self.performSegue(withIdentifier: "CommitsTableViewController", sender: nil)
+        }
+        if(indexPath.row == 1){
+            self.performSegue(withIdentifier: "IssuesTableViewController", sender: nil)
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "CommitsTableViewController"){
+            let vc = segue.destination as! CommitsTableViewController
+            vc.repository = self.repository
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

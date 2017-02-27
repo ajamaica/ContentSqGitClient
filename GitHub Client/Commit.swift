@@ -13,10 +13,12 @@ struct Commit: Mappable {
     
     let sha: String
     let url: String
+    var commit: DetailCommit?
     
     init(map: Mapper) throws {
         try sha = map.from("sha")
         try url = map.from("url")
+        commit = map.optionalFrom("commit")
 
     }
 }

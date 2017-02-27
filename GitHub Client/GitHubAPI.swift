@@ -17,6 +17,10 @@ public enum GitHub {
     case repoProfile(String)
     case repoCommits(String)
     case repoBranches(String)
+    case repoContributors(String)
+    case repoIssues(String)
+    case repoPulls(String)
+
 }
 
 extension GitHub: TargetType {
@@ -32,8 +36,14 @@ extension GitHub: TargetType {
             return "/repos/\(full_name)"
         case .repoCommits(let full_name):
             return "/repos/\(full_name)/commits"
+        case .repoIssues(let full_name):
+            return "/repos/\(full_name)/issues"
+        case .repoContributors(let full_name):
+            return "/repos/\(full_name)/contributors"
         case .repoBranches(let full_name):
             return "/repos/\(full_name)/branches"
+        case .repoPulls(let full_name):
+            return "/repos/\(full_name)/pulls"
         case .userRepositories(let name):
             return "/users/\(name.urlEscaped)/repos"
         }
@@ -75,7 +85,13 @@ extension GitHub: TargetType {
              return "".data(using: String.Encoding.utf8)!
         case .repoBranches:
             return "".data(using: String.Encoding.utf8)!
+        case .repoContributors:
+            return "".data(using: String.Encoding.utf8)!
+        case .repoIssues:
+            return "".data(using: String.Encoding.utf8)!
         case .repoCommits:
+            return "".data(using: String.Encoding.utf8)!
+        case .repoPulls:
             return "".data(using: String.Encoding.utf8)!
         case .listRepositories:
             return "[{\"id\":1  \"name\" : \"grit\"}]".data(using: String.Encoding.utf8)!
