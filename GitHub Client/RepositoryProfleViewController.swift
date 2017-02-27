@@ -126,6 +126,9 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         if(indexPath.row == 1){
             self.performSegue(withIdentifier: "IssuesTableViewController", sender: nil)
         }
+        if(indexPath.row == 2){
+            self.performSegue(withIdentifier: "OpenPullRequestTableViewController", sender: nil)
+        }
         
     }
     
@@ -140,6 +143,12 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
             let vc = segue.destination as! IssuesTableViewController
             vc.repository = self.repository
         }
+        
+        if(segue.identifier == "OpenPullRequestTableViewController"){
+            let vc = segue.destination as! OpenPullRequestTableViewController
+            vc.repository = self.repository
+        }
+        
         
     }
 

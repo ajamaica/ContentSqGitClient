@@ -273,7 +273,7 @@
                         <outlet property="tableView" destination="13Y-aL-7VZ" id="1C0-f7-cp6"/>
                         <segue destination="aO3-tZ-rEZ" kind="show" identifier="IssuesTableViewController" id="c36-QO-TBF"/>
                         <segue destination="UbJ-qI-PAS" kind="show" identifier="CommitsTableViewController" id="9by-5R-O4c"/>
-                        <segue destination="lND-Gh-wro" kind="show" id="rKf-0f-Rv4"/>
+                        <segue destination="lND-Gh-wro" kind="show" identifier="OpenPullRequestTableViewController" id="rKf-0f-Rv4"/>
                         <segue destination="ke0-br-toM" kind="show" id="g8Q-md-jhI"/>
                     </connections>
                 </viewController>
@@ -410,21 +410,30 @@
             </objects>
             <point key="canvasLocation" x="2677.5999999999999" y="429.53523238380814"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Pulls-->
         <scene sceneID="5Ov-Vp-YEv">
             <objects>
-                <tableViewController id="lND-Gh-wro" sceneMemberID="viewController">
+                <tableViewController title="Pulls" id="lND-Gh-wro" customClass="OpenPullRequestTableViewController" customModule="GitHub_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="J2z-Cc-780">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="V50-cf-gS9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="Kmt-Ur-4VV" style="IBUITableViewCellStyleDefault" id="V50-cf-gS9">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V50-cf-gS9" id="mx8-78-4CZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kmt-Ur-4VV">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>

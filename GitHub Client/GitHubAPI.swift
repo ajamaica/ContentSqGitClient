@@ -9,6 +9,8 @@
 import Foundation
 import Moya
 
+let GIT_APP_ID = "8026cd45f19bb07baa4b"
+let GIT_APP_SECRET = "a6adcb6bfede3e5750a2cb5717eb91359d025cba"
 
 public enum GitHub {
     case userRepositories(String)
@@ -53,18 +55,27 @@ extension GitHub: TargetType {
         return .get
     }
     public var parameters: [String: Any]? {
+        var param = ["client_id" : GIT_APP_ID,
+                    "client_secret" : GIT_APP_SECRET]
         switch self {
         case .userRepositories(_):
-            return ["sort": "pushed"]
+            param["sort"] = "pushed"
+            break
         case .listRepositories(let page):
-            return ["since": page]
+            param["since"] = "\(page)"
+            break
         case .repoPulls(_):
-            return ["state" : "open" ]
+            param["state"] = "open"
+            break
         case .searchRepositories(let query,let page):
-            return ["q": "\(query)", "page" : page]
+            param["q"] = "\(query)"
+            param["page"] = "\(page)"
+            break
         default:
-            return nil
+            break
+            
         }
+        return param
     }
     public var parameterEncoding: ParameterEncoding {
         return URLEncoding.default
