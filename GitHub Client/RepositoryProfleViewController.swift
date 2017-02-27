@@ -136,6 +136,11 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
             vc.repository = self.repository
         }
         
+        if(segue.identifier == "IssuesTableViewController"){
+            let vc = segue.destination as! IssuesTableViewController
+            vc.repository = self.repository
+        }
+        
     }
 
     /*
