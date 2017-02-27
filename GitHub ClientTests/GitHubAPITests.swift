@@ -90,8 +90,8 @@ class GitHubAPITests: QuickSpec {
         
         describe("repoProfile") {
             it("get repoProfile") {
-                
-                waitUntil(timeout: 2) { done in
+                // This test takes more time. I dont know if its my internet or the request it self
+                waitUntil(timeout: 5) { done in
                     
                     GitHubProvider.request(.repoProfile(self.TEST_REPO)) { result in
                         

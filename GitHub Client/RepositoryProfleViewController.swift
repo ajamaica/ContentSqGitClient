@@ -37,6 +37,13 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpView()
+        getCommits()
+        getBranches()
+
+
+    }
+    func setUpView(){
         self.label_name.text = self.repository?.name
         self.label_owner.text = "by \(self.repository!.owner.login)"
         self.label_description.text = "\(self.repository!.description!)"
@@ -46,7 +53,7 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         
         if((self.repository!.forks_count) != nil){
             self.label_forks.text = "\(self.repository!.forks_count!) forks"
-
+            
         }else{
             self.label_forks.text = "0 forks"
         }
@@ -61,21 +68,9 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
         self.img_avatar.sd_setImage(with: URL(string: self.repository!.owner.avatar_url!), placeholderImage: UIImage(named : "placeholder"))
         self.img_avatar.layer.cornerRadius = self.img_avatar.frame.size.width / 2
         self.img_avatar.clipsToBounds = true
-        
-        GitHubProvider.request(.repoCommits(self.repository!.full_name)) { result in
-            
-            if case let .success(response) = result {
-                do {
-                    
-                    let commits_array = try response.mapArray() as [Commit]
-                    self.label_commits.text = "\(commits_array.count) commits"
-                } catch {
-
-                }
-            }
-        }
-        
-        
+    }
+    
+    func getBranches(){
         GitHubProvider.request(.repoBranches(self.repository!.full_name)) { result in
             
             if case let .success(response) = result {
@@ -88,7 +83,21 @@ class RepositoryProfleViewController: UIViewController,UITableViewDelegate,UITab
                 }
             }
         }
-
+    }
+    
+    func getCommits(){
+        GitHubProvider.request(.repoCommits(self.repository!.full_name)) { result in
+            
+            if case let .success(response) = result {
+                do {
+                    
+                    let commits_array = try response.mapArray() as [Commit]
+                    self.label_commits.text = "\(commits_array.count) commits"
+                } catch {
+                    
+                }
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
