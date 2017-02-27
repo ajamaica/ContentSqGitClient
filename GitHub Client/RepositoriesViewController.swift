@@ -52,7 +52,7 @@ class RepositoriesViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    // SETUP DESING, UI AND EVENTS TABLEVIEW
+    // SETUP DESING, UI AND EVENTS TABLEVIEW, I do not like how this library manage the desing
     
     func setUpTableView(){
         
