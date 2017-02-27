@@ -129,7 +129,7 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
     }
 }
 
-let GitHubProvider = MoyaProvider<GitHub>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+let GitHubProvider = MoyaProvider<GitHub>(plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)])
 
 // MARK: - Provider support
 

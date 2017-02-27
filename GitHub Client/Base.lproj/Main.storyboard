@@ -348,7 +348,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="119" id="Bxe-B4-xZy" customClass="IssueTableViewCell" customModule="GitHub_Client" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IssueTableViewCell" rowHeight="119" id="Bxe-B4-xZy" customClass="IssueTableViewCell" customModule="GitHub_Client" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bxe-B4-xZy" id="ufC-8g-187">
@@ -395,7 +395,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label_autor" destination="gsa-be-Jws" id="TON-AZ-RqP"/>
-                                    <outlet property="label_name" destination="Qye-Ez-8IK" id="Rra-pW-hBG"/>
                                     <outlet property="label_title" destination="Qye-Ez-8IK" id="0Jc-Wz-FOg"/>
                                     <outlet property="tableview_description" destination="Ynb-rh-TWf" id="Wu1-2t-Ihd"/>
                                     <outlet property="textview_description" destination="Ynb-rh-TWf" id="wtD-m3-sAQ"/>
